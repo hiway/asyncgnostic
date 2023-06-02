@@ -34,14 +34,13 @@ def sync_caller():
 
 
 async def async_main():
-    print(await async_caller())
-    print(sync_caller())
+    print("Calling from async_main, async:", await async_caller())
+    print("Calling from async_main, sync:", sync_caller())
 
 
 def sync_main():
-    print(asyncio.run(async_caller()))
-    print(sync_caller())
-
+    print("Calling from sync_main, async:", asyncio.run(async_caller()))
+    print("Calling from sync_main, sync:", sync_caller())
 
 
 sync_main()
@@ -51,8 +50,8 @@ asyncio.run(async_main())
 Output:
 
 ```console
-Running async
-Running sync
-Running async
-Running sync
+Calling from sync_main, async: Running async
+Calling from sync_main, sync: Running sync
+Calling from async_main, async: Running async
+Calling from async_main, sync: Running sync
 ```
