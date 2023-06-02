@@ -2,6 +2,7 @@
 
 Python functions agnostic towards being called with await or otherwise.
 
+> This is most likely a *BAD IDEA* and will slow down your code, treat is as a curiosity.
 
 Example:
 
