@@ -47,3 +47,12 @@ def sync_main():
 sync_main()
 asyncio.run(async_main())
 ```
+
+Output:
+
+```console
+Running async
+Running sync
+Running async
+Running sync
+```
