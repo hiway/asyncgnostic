@@ -5,7 +5,7 @@ Python functions agnostic towards being called with await or otherwise.
 
 Example:
 
-```
+```python
 import asyncio
 from asyncgnostic import is_async
 
