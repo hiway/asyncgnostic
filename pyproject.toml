@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "asyncgnostic"
+version = "0.1.0"
+description = "Python functions agnostic towards being called with await or otherwise."
+authors = ["Harshad Sharma <harshad@sharma.io>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "asyncgnostic", from = "src" },
+]
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+pytest-asyncio = "^0.21.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
