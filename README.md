@@ -9,6 +9,7 @@ Example:
 import asyncio
 from asyncgnostic import is_async
 
+
 async def async_handler():
     return "Running async"
 
