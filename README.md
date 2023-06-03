@@ -2,46 +2,31 @@
 
 Python functions agnostic towards being called with await or otherwise.
 
-> This is most likely a *BAD IDEA* and will slow down your code, treat it as a curiosity.
+Uses (multiple dispatch)[https://en.wikipedia.org/wiki/Multiple_dispatch] 
+to automatically call asynchronous or synchronous function based on calling context.
 
-Example:
+## Example:
 
 ```python
 import asyncio
-from asyncgnostic import is_async
+from asyncgnostic import awaitable
 
 
-async def async_handler():
-    return "Running async"
+def handler() -> str:
+    return "Running Sync"
 
 
-def sync_handler():
-    return "Running sync"
-
-
-def agnostic_handler():
-    if is_async(stack_depth=2):
-        return async_handler()
-    else:
-        return sync_handler()
-
-
-async def async_caller():
-    return await agnostic_handler()
-
-
-def sync_caller():
-    return agnostic_handler()
-
-
-async def async_main():
-    print("Calling from async_main, async:", await async_caller())
-    print("Calling from async_main, sync:", sync_caller())
+@awaitable(handler)
+async def handler() -> str:
+    return "Running Async"
 
 
 def sync_main():
-    print("Calling from sync_main, async:", asyncio.run(async_caller()))
-    print("Calling from sync_main, sync:", sync_caller())
+    print("sync context", handler())
+
+
+async def async_main():
+    print("async context:", await handler())
 
 
 sync_main()
@@ -51,8 +36,14 @@ asyncio.run(async_main())
 Output:
 
 ```console
-Calling from sync_main, async: Running async
-Calling from sync_main, sync: Running sync
-Calling from async_main, async: Running async
-Calling from async_main, sync: Running sync
+sync context Running Sync
+async context: Running Async
 ```
+## Credits:
+
+Gratefully borrowed improvements from (curio)[https://github.com/dabeaz/curio/].
+
+Reference:
+  - https://mastodon.sharma.io/@harshad/110476942596328864
+  - https://mastodon.social/@dabeaz/110477080111974062
+  - https://github.com/dabeaz/curio/blob/master/curio/meta.py
