@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "asyncgnostic"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python functions agnostic towards being called with await or otherwise."
 authors = ["Harshad Sharma <harshad@sharma.io>"]
 license = "MIT"
