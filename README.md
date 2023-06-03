@@ -25,7 +25,7 @@ async def handler() -> str:
 
 # Call the function from sync context
 def sync_main():
-    print("sync context", handler())
+    print("sync context:", handler())
 
 
 # Call the function from async context
@@ -41,7 +41,7 @@ asyncio.run(async_main())
 Output:
 
 ```console
-sync context Running Sync
+sync context: Running Sync
 async context: Running Async
 ```
 
