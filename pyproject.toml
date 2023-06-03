@@ -9,7 +9,7 @@ packages = [
     { include = "asyncgnostic", from = "src" },
 ]
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 
 [tool.poetry.group.dev.dependencies]
 pytest-asyncio = "^0.21.0"

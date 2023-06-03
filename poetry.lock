@@ -89,8 +89,8 @@ python-versions = ">=3.7"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "0b923a026d006416a3661cb2124879c74ad2356700bc9c54448eedca187a9826"
+python-versions = "^3.9"
+content-hash = "5abb176d01a988aadb91e76a9d21a1bb1952a1ffc0e2b2b35a19fd2b564166a7"
 
 [metadata.files]
 colorama = [
