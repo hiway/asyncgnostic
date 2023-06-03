@@ -1,3 +1,12 @@
+"""
+Borrows heavily from Curio's meta.py module:
+
+https://github.com/dabeaz/curio/blob/master/curio/meta.py
+
+Curio is licensed under the BSD 3-Clause License.
+
+https://github.com/dabeaz/curio/blob/master/LICENSE
+"""
 from sys import _getframe
 from functools import wraps as _wraps
 import inspect as _inspect
