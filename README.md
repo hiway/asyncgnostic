@@ -44,6 +44,15 @@ Output:
 sync context Running Sync
 async context: Running Async
 ```
+
+
+## Install
+
+```
+pip install asyncgnostic
+```
+
+
 ## Credits:
 
 Gratefully borrowed improvements from [curio](https://github.com/dabeaz/curio/).
