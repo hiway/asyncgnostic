@@ -2,7 +2,7 @@
 
 Python functions agnostic towards being called with await or otherwise.
 
-Uses (multiple dispatch)[https://en.wikipedia.org/wiki/Multiple_dispatch] 
+Uses [multiple dispatch](https://en.wikipedia.org/wiki/Multiple_dispatch)
 to automatically call asynchronous or synchronous function based on calling context.
 
 ## Example:
@@ -41,7 +41,7 @@ async context: Running Async
 ```
 ## Credits:
 
-Gratefully borrowed improvements from (curio)[https://github.com/dabeaz/curio/].
+Gratefully borrowed improvements from [curio](https://github.com/dabeaz/curio/).
 
 Reference:
   - https://mastodon.sharma.io/@harshad/110476942596328864
