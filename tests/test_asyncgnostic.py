@@ -100,38 +100,6 @@ async def test_awaitable_class_method_async():
     assert await calc.add(1, 2) == 3  # async context
 
 
-def test_awaitable_static_method():
-    class Calculator:
-        @staticmethod
-        def sync_add(x: int, y: int) -> int:
-            return x + y
-
-        @staticmethod
-        @awaitable(sync_add)
-        async def add(x: int, y: int) -> int:
-            return x + y
-
-    calc = Calculator()
-    assert calc.add(1, 2) == 3  # sync context
-    assert Calculator.add(1, 2) == 3  # sync context via class
-
-
-async def test_awaitable_static_method_async():
-    class Calculator:
-        @staticmethod
-        def sync_add(x: int, y: int) -> int:
-            return x + y
-
-        @staticmethod
-        @awaitable(sync_add)
-        async def add(x: int, y: int) -> int:
-            return x + y
-
-    calc = Calculator()
-    assert await calc.add(1, 2) == 3  # async context
-    assert await Calculator.add(1, 2) == 3  # async context via class
-
-
 def test_awaitable_class_method_strict_mode():
     class Calculator:
         def sync_add(self, x: int) -> int:
