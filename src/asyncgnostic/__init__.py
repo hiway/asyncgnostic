@@ -99,7 +99,7 @@ def awaitable(sync_func):
                 return sync_func(*args, **kwargs)
 
         # Set docstring
-        wrapper.__doc__ = sync_func.__doc__ or async_func.__doc__
+        wrapper.__doc__ = async_func.__doc__ or sync_func.__doc__
 
         return wrapper
 
