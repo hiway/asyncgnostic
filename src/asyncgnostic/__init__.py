@@ -7,6 +7,7 @@ Curio is licensed under the BSD 3-Clause License.
 
 https://github.com/dabeaz/curio/blob/master/LICENSE
 """
+
 from sys import _getframe
 from functools import wraps as _wraps
 import inspect as _inspect
@@ -46,7 +47,7 @@ def awaited(depth=2, _cache={}) -> bool:
             return False
 
 
-def awaitable(sync_func):
+def awaitable(sync_func, strict=True):
     """
     Decorator to pair a sync function with an async function.
 
@@ -80,7 +81,8 @@ def awaitable(sync_func):
 
         # Ensure sync and async functions have the same return type
         if (
-            _inspect.signature(sync_func).return_annotation
+            strict
+            and _inspect.signature(sync_func).return_annotation
             != _inspect.signature(async_func).return_annotation
         ):
             raise TypeError(
@@ -88,7 +90,7 @@ def awaitable(sync_func):
             )
 
         # Ensure sync and async functions have the same signature
-        if _inspect.signature(sync_func) != _inspect.signature(async_func):
+        if strict and _inspect.signature(sync_func) != _inspect.signature(async_func):
             raise TypeError(
                 f"{sync_func.__name__} and async {async_func.__name__} must have the same signature"
             )
