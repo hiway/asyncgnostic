@@ -74,6 +74,10 @@ def awaitable(sync_func):
     """
 
     def decorate(async_func):
+        # Ensure the decorated function is async
+        if not _inspect.iscoroutinefunction(async_func):
+            raise TypeError("@awaitable can only decorate async functions")
+
         # Ensure sync and async functions have the same return type
         if (
             _inspect.signature(sync_func).return_annotation
